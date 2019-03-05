@@ -1,0 +1,152 @@
+// convert leter spacing from px to em
+@mixin letter-spacing ($val: 0) {
+  letter-spacing: ($val / 1000) + em;
+}
+
+// conver font size to rem val
+@mixin font-size ($fontSize, $remSize) {
+  font-size: ($fontSize / $remSize) + rem;
+}
+
+// get relative line height calc
+@mixin line-height ($px-val, $fontSize) {
+  line-height: $px-val / $fontSize;
+}
+
+// creating pseudo elements
+@mixin pseudo ($display: block, $content: '') {
+  content: $content;
+  display: $display;
+}
+
+// quick position
+@mixin position ($pos: relative, $top: auto, $rig: auto, $bot: auto, $lef: auto) {
+  position: $pos;
+  top: $top;
+  right: $rig;
+  bottom: $bot;
+  left: $lef;
+}
+
+@mixin position-vertically {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// cross browser opacity
+@mixin opacity ($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// fade  tFunc linear | ease | ease-in | ease-out | ease-in-out
+@mixin fade ($type, $tFunc: linear, $speed: .2s) {
+  @if $type {
+    visibility: hidden;
+    @include opacity(0);
+    transition: visibility $speed $tFunc, opacity $speed $tFunc;
+  }
+  @else {
+    visibility: visible;
+    @include opacity(1);
+    transition: visibility $speed $tFunc, opacity $speed $tFunc;
+  }
+}
+
+// retina support
+@mixin image-2x ($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+  (-o-min-device-pixel-ratio: 2.6/2),
+  (-webkit-min-device-pixel-ratio: 1.3),
+  (min-device-pixel-ratio: 1.3),
+  (min-resolution: 1.3dppx) {
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+// full width & height img
+@mixin img-cover {
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+// responsive and fluid typography
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+// responsive ratio
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+      &:before {
+          @include pseudo($pos: relative);
+          width: 100%;
+          padding-top: $padding;
+      }
+  } @else {
+      padding-top: $padding;
+  }
+}
+
+// external fonts
+@mixin font-face ($font-name, $file-name, $weight: normal, $style: normal) { 
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name + '.eot');
+    src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+         url($file-name + '.woff') format('woff'),
+         url($file-name + '.ttf')  format('truetype'),
+         url($file-name + '.svg##{$font-name}')  format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+ }
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+%visuallyhidden {
+	overflow: hidden !important;
+  position: absolute !important;
+  width: 1px !important;
+	height: 1px !important;
+	padding:0 !important;
+	border:0 !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  white-space: nowrap !important;
+}
