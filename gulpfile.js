@@ -56,7 +56,7 @@ gulp.task("default", ["clean", "html", "js", "sass"], function () {
 // html
 gulp.task("html", function () {
   return gulp.src("./src/*.html")
-    .pipe(htmlhint('.htmlhintrc'))
+    .pipe(htmlhint(".htmlhintrc"))
     .pipe(htmlhint.reporter());
 });
 
