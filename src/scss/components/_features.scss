@@ -1,6 +1,7 @@
 .features {
   padding-top: 86px;
   padding-bottom: 72px;
+  margin-bottom: 72px;
   overflow: hidden;
   color: $color-font;
   border-bottom: 1px solid #cacdcf;
@@ -42,7 +43,7 @@
 
   &__warpper {
     margin-left: 368px;
-    l-top: 68px;
+    padding-top: 68px;
     padding-bottom: 30px;
   }
 

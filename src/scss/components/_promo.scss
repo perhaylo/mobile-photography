@@ -63,6 +63,7 @@
     margin: 0 0 14px;
     font-size: 52px;
     font-weight: 600;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.08);
   }
 
   &__desc {
@@ -70,6 +71,7 @@
     font-weight: 300;
     font-size: 36px;
     line-height: 1.11;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.08);
 
     &--secondary {
       font-family: "Open Sans";
