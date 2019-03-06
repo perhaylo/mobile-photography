@@ -1,0 +1,11 @@
+.page {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 18px;
+  overflow-x: hidden;
+
+  &__wrapper {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
