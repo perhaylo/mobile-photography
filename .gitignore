@@ -1,7 +1,6 @@
 # folders
 bower_components/
 node_modules/
-docs/
 build/
 design/
 .vscode/
