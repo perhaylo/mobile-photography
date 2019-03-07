@@ -1,0 +1,16 @@
+@import "normalize";
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import "reset";
+
+// import components
+@import "components/page";
+@import "components/header";
+@import "components/logo";
+@import "components/nav";
+@import "components/promo";
+@import "components/features";
+@import "components/categories";
+@import "components/preview";
+@import "components/footer";

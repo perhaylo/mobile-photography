@@ -1,0 +1,30 @@
+.header {
+  font-family: Aller, Helvetica, sans-serif;
+  padding: 50px 0;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #cccccc;
+  background-image: url("../img/bg-top.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  overflow: hidden;
+
+  &__nav {
+    margin-bottom: 40px;
+  }
+
+  &__left {
+    width: 50%;
+    min-width: 480px;
+    float: left;
+  }
+
+  &__right {
+    margin-left: 50%;
+  }
+
+  &__wrapper {
+    height: 100%;
+  }
+}

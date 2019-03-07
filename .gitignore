@@ -1,0 +1,20 @@
+# folders
+bower_components/
+node_modules/
+docs/
+build/
+design/
+.vscode/
+npm-debug.*
+
+# files
+!.gitkeep
+.DS_Store
+Thumbs.db
+.idea
+*.log
+*.psd
+*.pdf
+*.ai
+*.subline*
+package-lock.json

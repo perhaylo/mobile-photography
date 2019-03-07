@@ -1,0 +1,76 @@
+.preview {
+  padding-bottom: 82px;
+  border-bottom: 1px solid #cacdcf;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  color: $color-font;
+
+  &__header {
+    margin: 0 0 12px;
+    font-family: Aller, Helvetica, sans-serif;
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  &__text {
+    margin: 0 0 26px;
+    font-size: 19px;
+    line-height: 27px;
+    font-weight: 400;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__contacts {
+    float: left;
+    width: 430px;
+  }
+
+  &__content {
+    margin-left: 50%;
+  }
+
+  &__person {
+    position: relative;
+    min-height: 120px;
+    padding-left: 140px;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
+    width: 120px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  &__img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 21px;
+    line-height: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+}
